@@ -1,9 +1,8 @@
 extends RigidBody2D
+
 signal levitando
 signal impulsado
-
-
-export var impulso = 0.55
+export var impulso = 4
 
 var contador = 0
 
@@ -53,4 +52,4 @@ func impulsar():
 		emit_signal("impulsado")
 		set_sleeping(false)
 		seleccionado = false
-		apply_central_impulse((position - playerPosition) * 0.11)
+		apply_central_impulse((position - playerPosition) * 1)

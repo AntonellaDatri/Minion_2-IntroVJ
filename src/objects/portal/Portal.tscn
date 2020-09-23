@@ -3,36 +3,8 @@
 [ext_resource path="res://assert/art/pentagono.png" type="Texture" id=1]
 [ext_resource path="res://src/objects/portal/Portal.gd" type="Script" id=2]
 
-[sub_resource type="Animation" id=1]
-resource_name = "Fade_in"
-loop = true
-tracks/0/type = "value"
-tracks/0/path = NodePath("TransitionLayer/ColorRect:color")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 1 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ Color( 0, 0, 0, 0 ), Color( 0, 0, 0, 1 ) ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath("TransitionLayer/ColorRect:visible")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ true ]
-}
-
 [sub_resource type="Animation" id=2]
-resource_name = "Start"
+resource_name = "START"
 length = 0.001
 tracks/0/type = "value"
 tracks/0/path = NodePath("TransitionLayer/ColorRect:color")
@@ -59,6 +31,34 @@ tracks/1/keys = {
 "values": [ false ]
 }
 
+[sub_resource type="Animation" id=1]
+resource_name = "fade_in"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("TransitionLayer/ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 0 ), Color( 0, 0, 0, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("TransitionLayer/ColorRect:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+
 [node name="Portal" type="Area2D"]
 monitorable = false
 collision_layer = 0
@@ -75,7 +75,6 @@ polygon = PoolVector2Array( -69.7346, 0.981721, 70.875, 0.919221, 113.575, -138.
 layer = 100
 
 [node name="ColorRect" type="ColorRect" parent="TransitionLayer"]
-visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 color = Color( 0, 0, 0, 0 )
@@ -84,6 +83,8 @@ __meta__ = {
 }
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-autoplay = "Start"
-anims/Fade_in = SubResource( 1 )
-anims/Start = SubResource( 2 )
+autoplay = "START"
+anims/START = SubResource( 2 )
+anims/fade_in = SubResource( 1 )
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

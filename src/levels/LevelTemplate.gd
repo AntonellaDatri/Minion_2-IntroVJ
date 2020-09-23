@@ -11,9 +11,6 @@ func _ready():
 func _physics_process(delta):
 	for caja in cajas:
 		caja.playerPosition = $Player.position
-		
-
-
 
 
 func caja_levitando(caja):
@@ -21,7 +18,7 @@ func caja_levitando(caja):
 		for c in cajas:
 			c.dejar_de_levitar()
 	hayCajasLevitando = true
-	
-	
+
+
 func caja_impulsada():
 	hayCajasLevitando = false

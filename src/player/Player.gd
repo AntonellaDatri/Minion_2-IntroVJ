@@ -20,11 +20,10 @@ func get_input():
 		velocity.x += run_speed
 	if left:
 		velocity.x -= run_speed
-
-
+	
 
 func _physics_process(delta):
 	velocity.y += gravity * delta
 	get_input()
-	velocity = move_and_slide(velocity, Vector2(0, -1))
+	velocity = move_and_slide(velocity, Vector2(0, -1), false, 4, PI/4, false)
 

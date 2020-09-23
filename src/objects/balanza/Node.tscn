@@ -1,0 +1,69 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://src/objects/caja/Caja.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Node.gd" type="Script" id=2]
+[ext_resource path="res://assert/art/punto_fijo2.png" type="Texture" id=3]
+[ext_resource path="res://assert/art/plataforma.png" type="Texture" id=4]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 133.992, 13.5449 )
+
+[sub_resource type="CircleShape2D" id=2]
+radius = 45.1056
+
+[node name="Node" type="Node"]
+script = ExtResource( 2 )
+
+[node name="DampedSpringJoint2D" type="DampedSpringJoint2D" parent="."]
+position = Vector2( 233.769, 279.503 )
+node_a = NodePath("../RigidBody2D3")
+node_b = NodePath("../RigidBody2D2")
+length = 259.0
+
+[node name="RigidBody2D" type="RigidBody2D" parent="."]
+position = Vector2( 827.073, 695.858 )
+
+[node name="plataforma" type="Sprite" parent="RigidBody2D"]
+position = Vector2( 0.00765991, -0.00898743 )
+scale = Vector2( 0.757747, 0.898073 )
+texture = ExtResource( 4 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
+position = Vector2( -0.00012207, 3.05176e-05 )
+shape = SubResource( 1 )
+
+[node name="RigidBody2D2" type="RigidBody2D" parent="."]
+position = Vector2( 234.332, 547.324 )
+
+[node name="plataforma" type="Sprite" parent="RigidBody2D2"]
+position = Vector2( 0.00772095, -1.59637 )
+scale = Vector2( 0.757747, 0.898073 )
+texture = ExtResource( 4 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D2"]
+shape = SubResource( 1 )
+
+[node name="RigidBody2D3" type="RigidBody2D" parent="."]
+position = Vector2( 231.856, 277.822 )
+mode = 1
+
+[node name="punto_fijo2" type="Sprite" parent="RigidBody2D3"]
+position = Vector2( 1.1748, 0.896423 )
+texture = ExtResource( 3 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D3"]
+shape = SubResource( 2 )
+
+[node name="RigidBody2D4" type="RigidBody2D" parent="."]
+position = Vector2( 807.029, 284.549 )
+mode = 1
+
+[node name="punto_fijo2" type="Sprite" parent="RigidBody2D4"]
+position = Vector2( 1.1748, 0.896423 )
+texture = ExtResource( 3 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D4"]
+shape = SubResource( 2 )
+
+[node name="Caja" parent="." instance=ExtResource( 1 )]
+position = Vector2( 183, 388 )
