@@ -8,7 +8,7 @@ var contador = 0
 
 var seleccionado = false ##
 var puedeLevitar = false
-var playerPosition
+var playerPosition = Vector2(0,0)
 
 
 func _physics_process(delta):

@@ -1,0 +1,100 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://src/objects/caja/Caja.tscn" type="PackedScene" id=1]
+[ext_resource path="res://assert/art/punto_fijo2.png" type="Texture" id=2]
+[ext_resource path="res://assert/art/plataforma.png" type="Texture" id=3]
+[ext_resource path="res://src/objects/obstaculos/balanza/Balanza.gd" type="Script" id=4]
+
+[sub_resource type="CircleShape2D" id=1]
+radius = 17.9565
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 87.0488, 8.08804 )
+
+[sub_resource type="CircleShape2D" id=3]
+radius = 19.1633
+
+[sub_resource type="RectangleShape2D" id=4]
+extents = Vector2( 87.0959, 7.94849 )
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource( 4 )
+peso_agregado_izq = -250
+
+[node name="PuntoFijoIzq" type="StaticBody2D" parent="."]
+position = Vector2( 116.736, 206.533 )
+collision_layer = 16
+collision_mask = 2
+
+[node name="Sprite" type="Sprite" parent="PuntoFijoIzq"]
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PuntoFijoIzq"]
+shape = SubResource( 1 )
+
+[node name="PlataformaIzq" type="RigidBody2D" parent="."]
+position = Vector2( 116.736, 359.764 )
+contacts_reported = 1
+contact_monitor = true
+
+[node name="Sprite" type="Sprite" parent="PlataformaIzq"]
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 3 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlataformaIzq"]
+shape = SubResource( 2 )
+
+[node name="DampedSpringJoint2D3" type="DampedSpringJoint2D" parent="."]
+position = Vector2( 298.451, 206.533 )
+node_a = NodePath("../PuntoFijoIzq")
+node_b = NodePath("../PlataformaIzq")
+length = 200.0
+damping = 3.5
+
+[node name="DampedSpringJoint2D2" type="DampedSpringJoint2D" parent="."]
+position = Vector2( -58.7993, 206.533 )
+node_a = NodePath("../PuntoFijoIzq")
+node_b = NodePath("../PlataformaIzq")
+length = 200.0
+damping = 3.5
+
+[node name="PuntoFijoDer" type="StaticBody2D" parent="."]
+position = Vector2( 523.458, 206.533 )
+
+[node name="Sprite" type="Sprite" parent="PuntoFijoDer"]
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PuntoFijoDer"]
+shape = SubResource( 3 )
+
+[node name="PlataformaDer" type="RigidBody2D" parent="."]
+position = Vector2( 523.458, 455.93 )
+
+[node name="Sprite" type="Sprite" parent="PlataformaDer"]
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 3 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlataformaDer"]
+shape = SubResource( 4 )
+
+[node name="DampedSpringJoint2D" type="DampedSpringJoint2D" parent="."]
+position = Vector2( 702.864, 206.533 )
+node_a = NodePath("../PuntoFijoDer")
+node_b = NodePath("../PlataformaDer")
+length = 250.0
+
+[node name="DampedSpringJoint2D4" type="DampedSpringJoint2D" parent="."]
+position = Vector2( 347.897, 206.533 )
+node_a = NodePath("../PuntoFijoDer")
+node_b = NodePath("../PlataformaDer")
+length = 250.0
+
+[node name="Caja" parent="." instance=ExtResource( 1 )]
+position = Vector2( 116.736, 254.558 )
+mass = 25.5102
+[connection signal="body_entered" from="PlataformaIzq" to="." method="_on_PlataformaIzq_body_entered"]
+[connection signal="body_exited" from="PlataformaIzq" to="." method="_on_PlataformaIzq_body_exited"]
+[connection signal="body_entered" from="PlataformaDer" to="." method="_on_PlataformaDer_body_entered"]
+[connection signal="body_exited" from="PlataformaDer" to="." method="_on_PlataformaDer_body_exited"]

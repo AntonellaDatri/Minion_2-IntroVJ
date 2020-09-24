@@ -5,6 +5,9 @@
 [ext_resource path="res://assert/art/piso1.png" type="Texture" id=3]
 [ext_resource path="res://assert/art/piso2.png" type="Texture" id=4]
 
+
+
+
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 0, 0, 96, 0, 96, 96, 0, 96 )
 

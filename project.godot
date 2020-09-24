@@ -16,7 +16,7 @@ _global_script_class_icons={
 [application]
 
 config/name="Minion 2- Intro Vj"
-run/main_scene="res://src/levels/LevelTemplate.tscn"
+run/main_scene="res://src/objects/obstaculos/balanza/Balanza.tscn"
 
 [display]
 
