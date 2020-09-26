@@ -6,9 +6,9 @@ export var impulso = 4
 
 var contador = 0
 
-var seleccionado = false ##
+var seleccionado = false 
 var puedeLevitar = false
-var playerPosition = Vector2(0,0)
+var playerPosition
 
 
 func _physics_process(delta):
@@ -52,4 +52,4 @@ func impulsar():
 		emit_signal("impulsado")
 		set_sleeping(false)
 		seleccionado = false
-		apply_central_impulse((position - playerPosition) * 1)
+		apply_central_impulse((position - playerPosition) * 4)

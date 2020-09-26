@@ -3,7 +3,6 @@
 [ext_resource path="res://assert/art/caja.png" type="Texture" id=1]
 [ext_resource path="res://src/objects/caja/Caja.gd" type="Script" id=2]
 
-
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 23.8831, 23.7145 )
 
@@ -13,7 +12,7 @@ extents = Vector2( 23.8831, 23.7145 )
 position = Vector2( 1, 0 )
 input_pickable = true
 collision_layer = 2
-collision_mask = 7
+collision_mask = 55
 script = ExtResource( 2 )
 
 [node name="caja" type="Sprite" parent="."]

@@ -1,0 +1,136 @@
+[gd_scene load_steps=13 format=2]
+
+[ext_resource path="res://src/levels/LevelTemplate.gd" type="Script" id=1]
+[ext_resource path="res://src/objects/caja/Caja.tscn" type="PackedScene" id=2]
+[ext_resource path="res://src/player/Player.tscn" type="PackedScene" id=3]
+[ext_resource path="res://src/objects/obstaculos/trampa/Trampa.tscn" type="PackedScene" id=4]
+[ext_resource path="res://src/objects/portal/Portal.tscn" type="PackedScene" id=5]
+[ext_resource path="res://src/objects/obstaculos/balanza/Balanza.tscn" type="PackedScene" id=6]
+[ext_resource path="res://assert/art/piso1.png" type="Texture" id=7]
+[ext_resource path="res://assert/art/piso2.png" type="Texture" id=8]
+[ext_resource path="res://src/levels/Level4.tscn" type="PackedScene" id=9]
+
+[sub_resource type="ConvexPolygonShape2D" id=1]
+points = PoolVector2Array( 0, 0, 96, 0, 96, 96, 0, 96 )
+
+[sub_resource type="ConvexPolygonShape2D" id=2]
+points = PoolVector2Array( 0, 0, 96, 0, 96, 96, 0, 96 )
+
+[sub_resource type="TileSet" id=3]
+1/name = "piso2.png 1"
+1/texture = ExtResource( 8 )
+1/tex_offset = Vector2( 0, 0 )
+1/modulate = Color( 1, 1, 1, 1 )
+1/region = Rect2( 0, 0, 96, 96 )
+1/tile_mode = 0
+1/occluder_offset = Vector2( 0, 0 )
+1/navigation_offset = Vector2( 0, 0 )
+1/shape_offset = Vector2( 0, 0 )
+1/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+1/shape = SubResource( 1 )
+1/shape_one_way = false
+1/shape_one_way_margin = 1.0
+1/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 1 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+1/z_index = 0
+2/name = "piso1.png 2"
+2/texture = ExtResource( 7 )
+2/tex_offset = Vector2( 0, 0 )
+2/modulate = Color( 1, 1, 1, 1 )
+2/region = Rect2( 0, 0, 96, 96 )
+2/tile_mode = 0
+2/occluder_offset = Vector2( 0, 0 )
+2/navigation_offset = Vector2( 0, 0 )
+2/shape_offset = Vector2( 0, 0 )
+2/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+2/shape = SubResource( 2 )
+2/shape_one_way = false
+2/shape_one_way_margin = 1.0
+2/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 2 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+2/z_index = 0
+
+[node name="LevelTemplate" type="Node2D"]
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_vertical_guides_": [ 1634.89 ]
+}
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = SubResource( 3 )
+cell_size = Vector2( 48, 50 )
+collision_layer = 4
+collision_mask = 0
+format = 1
+tile_data = PoolIntArray( -917505, 1, 0, -983040, 1, 0, -983039, 1, 0, -983038, 1, 0, -983037, 1, 0, -983036, 1, 0, -983035, 1, 0, -983034, 1, 0, -983033, 1, 0, -983032, 1, 0, -983031, 1, 0, -983030, 1, 0, -983029, 1, 0, -983028, 1, 0, -983027, 1, 0, -983026, 1, 0, -983025, 1, 0, -983024, 1, 0, -983023, 1, 0, -983021, 1, 0, -983020, 1, 0, -983019, 1, 0, -983017, 1, 0, -983016, 1, 0, -983015, 1, 0, -983014, 1, 0, -983013, 1, 0, -983012, 1, 0, -983011, 1, 0, -983010, 1, 0, -983009, 1, 0, -983008, 1, 0, -983007, 1, 0, -851969, 1, 0, -917471, 1, 0, -786433, 1, 0, -851935, 1, 0, -720897, 1, 0, -786399, 1, 0, -655361, 1, 0, -720863, 1, 0, -589825, 1, 0, -655327, 1, 0, -524289, 1, 0, -589791, 1, 0, -458753, 1, 0, -524255, 1, 0, -393217, 1, 0, -458719, 1, 0, -327681, 1, 0, -262145, 1, 0, -327647, 1, 0, -196609, 1, 0, -262111, 1, 0, -131073, 1, 0, -196575, 1, 0, -65537, 1, 0, -131039, 1, 0, -1, 1, 0, -65503, 1, 0, 65535, 1, 0, 33, 1, 0, 131071, 1, 0, 65569, 1, 0, 196607, 1, 0, 131105, 1, 0, 262143, 1, 0, 196641, 1, 0, 327679, 1, 0, 262177, 1, 0, 393215, 1, 0, 327713, 1, 0, 458751, 1, 0, 393249, 1, 0, 524287, 1, 0, 458785, 1, 0, 589821, 0, 0, 589822, 0, 0, 589823, 1, 0, 524288, 0, 0, 524289, 0, 0, 524290, 0, 0, 524291, 0, 0, 524292, 0, 0, 524293, 0, 0, 524294, 0, 0, 524295, 0, 0, 524296, 0, 0, 524297, 0, 0, 524298, 0, 0, 524299, 0, 0, 524300, 0, 0, 524301, 0, 0, 524302, 0, 0, 524303, 0, 0, 524304, 0, 0, 524305, 0, 0, 524306, 0, 0, 524321, 1, 0, 655359, 1, 0, 589857, 1, 0, 720895, 1, 0, 655393, 1, 0, 786431, 1, 0, 720897, 2, 0, 720898, 2, 0, 720899, 2, 0, 720900, 2, 0, 720901, 2, 0, 720902, 2, 0, 720903, 2, 0, 720904, 2, 0, 720905, 2, 0, 720906, 2, 0, 720907, 2, 0, 720908, 2, 0, 720909, 2, 0, 720910, 2, 0, 720911, 2, 0, 720912, 2, 0, 720913, 2, 0, 720915, 2, 0, 720917, 2, 0, 720918, 2, 0, 720919, 2, 0, 720925, 2, 0, 720926, 2, 0, 720927, 2, 0, 720929, 1, 0 )
+
+[node name="Portal" parent="." instance=ExtResource( 5 )]
+position = Vector2( 1486.42, 550.264 )
+scale = Vector2( 0.5, 0.5 )
+next_scene = ExtResource( 9 )
+
+[node name="Player" parent="." instance=ExtResource( 3 )]
+position = Vector2( 417.073, 515.227 )
+
+[node name="Camera2D" parent="Player" index="2"]
+limit_right = 1635
+
+[node name="Balanza" parent="." instance=ExtResource( 6 )]
+position = Vector2( 773.984, 91.1657 )
+
+[node name="Caja2" parent="." instance=ExtResource( 2 )]
+position = Vector2( 891.786, 520.631 )
+mass = 5.0
+impulso = 20
+
+[node name="Caja4" parent="." instance=ExtResource( 2 )]
+position = Vector2( 838.833, 522.253 )
+mass = 5.0
+impulso = 20
+
+[node name="Caja3" parent="." instance=ExtResource( 2 )]
+position = Vector2( 954.598, 522.75 )
+mass = 5.0
+impulso = 20
+
+[node name="Trampa" parent="." instance=ExtResource( 4 )]
+position = Vector2( 371.022, 456.12 )
+
+[node name="Caja5" parent="." instance=ExtResource( 2 )]
+position = Vector2( 397.184, 383.507 )
+mass = 5.0
+impulso = 20
+
+[node name="Caja6" parent="." instance=ExtResource( 2 )]
+position = Vector2( 463.78, 378.75 )
+mass = 5.0
+impulso = 20
+
+[node name="Caja7" parent="." instance=ExtResource( 2 )]
+position = Vector2( 525.619, 381.129 )
+mass = 5.0
+impulso = 20
+[connection signal="impulsado" from="Caja2" to="." method="caja_impulsada"]
+[connection signal="levitando" from="Caja2" to="." method="caja_levitando"]
+[connection signal="impulsado" from="Caja4" to="." method="caja_impulsada"]
+[connection signal="levitando" from="Caja4" to="." method="caja_levitando"]
+[connection signal="impulsado" from="Caja3" to="." method="caja_impulsada"]
+[connection signal="levitando" from="Caja3" to="." method="caja_levitando"]
+[connection signal="impulsado" from="Caja5" to="." method="caja_impulsada"]
+[connection signal="levitando" from="Caja5" to="." method="caja_levitando"]
+[connection signal="impulsado" from="Caja6" to="." method="caja_impulsada"]
+[connection signal="levitando" from="Caja6" to="." method="caja_levitando"]
+[connection signal="impulsado" from="Caja7" to="." method="caja_impulsada"]
+[connection signal="levitando" from="Caja7" to="." method="caja_levitando"]
+
+[editable path="Player"]

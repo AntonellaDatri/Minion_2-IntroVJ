@@ -16,7 +16,7 @@ _global_script_class_icons={
 [application]
 
 config/name="Minion 2- Intro Vj"
-run/main_scene="res://src/objects/obstaculos/balanza/Balanza.tscn"
+run/main_scene="res://src/levels/LevelTemplate.tscn"
 
 [display]
 
@@ -68,6 +68,7 @@ pasar_de_nivel={
 2d_physics/layer_3="world"
 2d_physics/layer_4="portal"
 2d_physics/layer_5="trampa"
+2d_physics/layer_6="balanza"
 
 [rendering]
 
