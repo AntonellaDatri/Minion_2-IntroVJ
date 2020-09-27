@@ -52,4 +52,4 @@ func impulsar():
 		emit_signal("impulsado")
 		set_sleeping(false)
 		seleccionado = false
-		apply_central_impulse((position - playerPosition) * 4)
+		apply_central_impulse((position - playerPosition) * 2)

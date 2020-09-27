@@ -16,11 +16,13 @@ _global_script_class_icons={
 [application]
 
 config/name="Minion 2- Intro Vj"
-run/main_scene="res://src/levels/LevelTemplate.tscn"
+run/main_scene="res://src/main/Main.tscn"
 
 [display]
 
 window/dpi/allow_hidpi=true
+window/per_pixel_transparency/enabled=true
+window/stretch/aspect="expand"
 
 [input]
 

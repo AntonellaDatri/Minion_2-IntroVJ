@@ -118,7 +118,7 @@ one_way_collision_margin = 125.0
 position = Vector2( 116.736, 206.533 )
 node_a = NodePath("../PuntoFijoIzq")
 node_b = NodePath("../PlataformaIzq")
-length = 200.0
+length = 250.0
 stiffness = 64.0
 damping = 16.0
 
